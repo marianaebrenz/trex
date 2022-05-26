@@ -46,6 +46,7 @@ function draw(){
 
   //texto da pontuação
   text("Pontuação: " + pontos,500,20);
+  pontos+=Math.round(frameCount/60);
 
 
   //fazer o trex pular
@@ -62,6 +63,7 @@ function draw(){
     chao.x=chao.width/2;
   }
   nuvens()
+  cactos()
     //desenhar os sprites na tela
   drawSprites();
 
@@ -85,12 +87,25 @@ function draw(){
 
  function cactos(){
    if(frameCount%60===0){
-    var cacto = createSprite(400,165,10,40);
+    var cacto = createSprite(400,170,10,40);
     cacto.velocityX = -6;
     var rand = Math.round(random(1,6));
     switch(rand){
       case 1: cacto.addImage(obs1);
               break;
+              case 2: cacto.addImage(obs2);
+              break;      
+              case 3: cacto.addImage(obs3);
+              break;     
+              case 4: cacto.addImage(obs4);
+              break;      
+              case 5: cacto.addImage(obs5);
+              break;  
+              case 6: cacto.addImage(obs6);
+              break;        
+              default:break; 
     }
+    cacto.scale=0.5;
+    cacto.lifetime=200;
    }
  }
